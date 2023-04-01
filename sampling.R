@@ -1,4 +1,4 @@
-# Random re-sampling to compare BRUNOL4 / BRUNOL5 binding site to intron between CACNA1C exon 20 and 21
+##This code performs random re-sampling of nucleotides within a given nucleotide sequence. In the code below, random re-sampling of the nucleotide sequence for the intron between CACNA1C exon 20 and 21 is conducted 1000 times to generate a distribution of scores (i.e. median PhyloP scores for the sampled nucleotides). For the code below, random re-sampling is conducted to compare the BRUNOL4 / BRUNOL5 binding site to the intron between CACNA1C exon 20 and 21.
 # read data  
 mydata <- read.table("/ceph/project/tunbridgelab/aangeles/conservation/phyloP17/phyloP_CACNA1C-exon20_21.txt", header=TRUE, sep="\t")
 
