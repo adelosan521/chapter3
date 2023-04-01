@@ -1,3 +1,5 @@
+##This code reads in RBP expression data from Brainspan (shown is code for U2AF2), finds rows with "frontal cortex" in the brain_region column (for analysis of frontal cortex samples). It calculates the median and standard error for rows before and after row 239 (in a dataframe containing the sample names and RPKM values, row 239 is when the postnatal samples begins). It also performs a t-test to compare the two sets of data.
+
 #read data (example is U2AF2 data from Brainspan)
 data <- read.csv("/home/a/aangeles/Downloads/U2AF2_data.csv")
 head(data)
