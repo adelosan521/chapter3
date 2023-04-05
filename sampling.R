@@ -14,7 +14,7 @@ results <- replicate(1000, {
   c(mean_score, sd_score)
 })
 
-# Extract mean values
+# Extract median values
 means <- results[seq(1, length(results), 2)]
 # Compute percentiles
 percentiles <- quantile(means, c(0.025, 0.975))
@@ -31,5 +31,4 @@ abline(v=mean(means), col="red", lwd=2)
 abline(v=percentiles[1], col="blue", lwd=2, lty="dashed")
 abline(v=percentiles[2], col="blue", lwd=2, lty="dashed")
 legend("topleft", legend=c("Median", "2.5% percentile", "97.5% percentile"), col=c("red", "blue", "blue"), lty=c(1, 1, 1), lwd=1)
-## We use the sample() function to randomly select 4 indices from the set of indices where the nucleotides are "G" or "T". We compute the mean and standard deviation of the conservation scores for these indices using the mean() and sd() functions. We repeat this process 1000 times using the replicate() function and store the results in the results matrix. We extract the means and standard deviations into separate vectors. We then compute the 2.5% and 97.5% percentiles of the means using the quantile() function. Finally, we plot the distribution of means using the hist() function and add lines for the mean and percentiles using the abline() function. We also add a legend using the legend() function.
 
