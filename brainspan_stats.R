@@ -1,7 +1,7 @@
 ##This code reads in RBP expression data from Brainspan (shown is code for U2AF2), finds rows with "frontal cortex" in the brain_region column (for analysis of frontal cortex samples). It checks normality using Shapiro-Wilk Test. It then calculates the median and interquartile range for the rows before row 239 (prenatal data) and after row 239 (postnatal data), and performs a Mann-Whitney U test for comparison. Although not used in the thesis, code for calculating mean and standard error, as well as conducting a t-test is also provided. 
 
-#read data (example is U2AF2 data from Brainspan)
-data <- read.csv("/home/a/aangeles/Downloads/U2AF2_data.csv")
+#read data (example is BRUNOL4/CELF4 data from Brainspan)
+data <- read.csv("/home/a/aangeles/Downloads/CELF4_data.csv")
 head(data)
 # use grep to find rows with "frontal cortex"
 fc_rows <- grep("frontal", data$brain_region)
