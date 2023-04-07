@@ -1,3 +1,4 @@
+##This code reads in RBP expression data from Brainspan (shown is code for BRUNOL4/CELF4), finds rows with "frontal cortex" in the brain_region column (for analysis of frontal cortex samples). It checks normality using Shapiro-Wilk Test. It then calculates the median and interquartile range for the rows before row 76 ("early" fetal data) and after 160 but before row 239 ("late" fetal data), and performs a Mann-Whitney U test for comparison. Although not used in the thesis, code for calculating mean and standard error, as well as conducting a t-test is also provided. 
 
 data <- read.csv("/home/a/aangeles/Downloads/CELF4_data.csv")
 head(data)
