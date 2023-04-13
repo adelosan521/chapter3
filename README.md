@@ -1,6 +1,6 @@
 This Github repository contains the scripts used in Chapter 3 of Alejandro De Los Angeles's DPhil thesis. This repository contains scripts for assessing the evolutionary conservation of RBP binding sites and statistical analyses of gene expression data.
 
-The code for randomly selecting genes from the human genome is featured in the "randomgene.R" script. This code was used to select randomly select genes for testing FIMO and HOMER sensitivity.
+The code for randomly selecting genes from the human genome is featured in the "randomgene.R" script. This code was used to select randomly select genes for testing FIMO and HOMER sensitivity. The code for a random number generator is featured in the "randomnumber.R" script. This code was used to help randomly select eCLIP peaks for testing FIMO and HOMER sensitivity.
 
 The script for intersecting binding site results from FIMO and HOMER global is contained in the "intersection.sh" script. The code will identify overlapping binding sites between two different BED files.
 
