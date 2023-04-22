@@ -1,5 +1,5 @@
-## This script was used to conduct a Fisher's exact test to compare FIMO and HOMER for five different RBPs (ELAVL1, KHDRBS1, TARDBP, PABPC4, FXR1). It produces a table that is saved to a PNG image file.
-## Below is the code to conduct Fisher's Exact Test for comparing ELAVL1 frequency between FIMO and HOMER
+## This script was used to conduct a Fisher's exact test to compare FIMO and HOMER for five different RBPs (ELAVL1, KHDRBS1, TARDBP, PABPC4, FXR1). 
+## Below is the code to conduct Fisher's Exact Test for comparing the frequencies of motif occurrences that FIMO and HOMER found at eCLIP peaks for the ELAVL1 RBP.
 # Define the observed counts
 observed_counts <- matrix(c(6, 24, 20, 10), nrow = 2)
 
