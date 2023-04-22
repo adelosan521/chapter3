@@ -1,3 +1,4 @@
+## This script is code for calculating nucleotide frequencies in a given nucleotide sequence. In this thesis, this script was used to calculate nucleotide frequency of VGCC splicing regions of interest.
 # Create a function to calculate nucleotide frequencies
 calculate_frequencies <- function(sequence) {
   # Convert the sequence to uppercase
