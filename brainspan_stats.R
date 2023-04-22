@@ -1,9 +1,9 @@
-##This code reads in RBP expression data from Brainspan (shown is code for BRUNOL4/CELF4), finds rows with "frontal" in the brain_region column (for analysis of frontal cortex samples). It checks normality using Shapiro-Wilk Test. It then calculates the median and interquartile range for the rows before row 239 (prenatal data) and after row 239 (postnatal data), and performs a Mann-Whitney U test for comparison. Although not used in the thesis, code for calculating mean and standard error, as well as conducting a t-test is also provided. 
+##This code reads in expression data from Brainspan (shown is code for BRUNOL4/CELF4), finds rows with "frontal" in the brain_region column (for analysis of frontal cortex samples). It checks normality using Shapiro-Wilk Test. Because the data is not normally distributed, it then calculates the median and interquartile range for the rows before row 239 (prenatal data) and after row 239 (postnatal data), and performs a Mann-Whitney U test for comparison.
 
 #read data (example is BRUNOL4/CELF4 data from Brainspan)
 data <- read.csv("/home/a/aangeles/Downloads/CELF4_data.csv")
 head(data)
-# use grep to find rows with "frontal cortex"
+# use grep to find frontal cortex samples (i.e. rows with "frontal")
 fc_rows <- grep("frontal", data$brain_region)
 head(fc_rows)
 print(fc_rows)
@@ -13,6 +13,7 @@ library(nortest)
 fetal_data <- data$RPKM[fc_rows[fc_rows < 239]]
 postnatal_data <- data$RPKM[fc_rows[fc_rows >= 239]]
 
+# Test normality of fetal data
 if (ad.test(fetal_data)$p.value < 0.05) {
   print("Fetal data is not normally distributed")
 } else {
@@ -49,23 +50,3 @@ cat("\nMann-Whitney U test:\n")
 cat("U statistic:", mwu$statistic, "\n")
 cat("p-value:", mwu$p.value, "\n")
 cat("Significant:", ifelse(mwu$p.value < 0.05, "Yes", "No"), "\n")
-
-# calculate mean and SE for "frontal cortex" rows before row 239
-prenatal_mean <- mean(data$RPKM[fc_rows[fc_rows < 239]])
-prenatal_se <- sd(data$RPKM[fc_rows[fc_rows < 239]]) / sqrt(length(fc_rows[fc_rows < 239]))
-
-# calculate mean and SE for "frontal cortex" rows after row 239
-postnatal_mean <- mean(data$RPKM[fc_rows[fc_rows >= 239]])
-postnatal_se <- sd(data$RPKM[fc_rows[fc_rows >= 239]]) / sqrt(length(fc_rows[fc_rows >= 239]))
-
-fc_before <- data$RPKM[fc_rows[fc_rows < 239]]
-fc_after <- data$RPKM[fc_rows[fc_rows >= 239]]
-ttest <- t.test(fc_before, fc_after)
-
-# print results
-cat("Prenatal mean:", prenatal_mean, "\n")
-cat("Prenatal SE:", prenatal_se, "\n")
-cat("Postnatal mean:", postnatal_mean, "\n")
-cat("Postnatal SE:", postnatal_se, "\n")
-cat("t-value:", ttest$statistic, "\n")
-cat("p-value:", ttest$p.value, "\n")
