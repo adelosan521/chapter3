@@ -3,7 +3,7 @@
 mydata <- read.table("/ceph/project/tunbridgelab/aangeles/conservation/phyloP17/phyloP_CACNA1C-exon20_21.txt", header=TRUE, sep="\t")
 
 # Sample 4 Gs and 4 Ts and compute median conservation score (because BRUNOL4 / BRUNOL5 binding site is comprised of 4 Gs and 4 Ts)
-set.seed(123) # set seed for reproducibility
+set.seed(12) # set seed for reproducibility
 results <- replicate(1000, {
   selected_indices <- c(sample(which(mydata$DNA_nucleotides == "G"), 4), 
                         sample(which(mydata$DNA_nucleotides == "T"), 4))
