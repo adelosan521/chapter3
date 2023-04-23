@@ -1,6 +1,6 @@
-##This script randomly selects genes from the human genome. 
+##This script randomly selects genes from the human genome. Example shown is for randomly selecting ten genes.
 
-## load required libraries
+## load required libraries 
 library(tidyverse)
 library(biomaRt)
 
